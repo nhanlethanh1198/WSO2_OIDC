@@ -16,7 +16,7 @@ const clientSecret = process.env.CLIENT_SECRET;
 const app = express();
 app.use(express.static(__dirname + "/public"));
 let data = clientID + ":" + clientSecret;
-let buff = new Buffer(data);
+let buff = new Buffer.from(data);
 
 //base64 encoding
 let base64data = buff.toString("base64");
@@ -60,9 +60,9 @@ app.get("/oauth", (req, res) => {
     })
     .catch((err) => {
       // Do somthing
-      console.log(err);
+      console.table(err);
     });
 });
 
 // Start the server on port 8080
-app.listen(5000);
+app.listen(5000, () => console.log("http://localhost:5000"));
