@@ -2,10 +2,9 @@
   "name": "node-oauth-example-with-wso2is",
   "version": "1.0.0",
   "description": "An example of oAuth2.0 using node with wso2 is",
-  "main": "index.js",
-  "repository": "https://github.com/Wathsara/OAuth-Node-WSO2-IS",
-  "author": "Wathsara Daluwatta",
+  "main": "src/index.js",
   "license": "MIT",
+  "module": "es6",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
@@ -23,6 +22,7 @@
     "multer": "^1.4.4"
   },
   "scripts": {
+    "start": "nodemon build/index.js",
     "start:build": "node build/index.js",
     "start:dev": "nodemon",
     "build": "npm run build:clean && npm run build:build",
