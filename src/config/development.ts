@@ -4,6 +4,7 @@ import sql from "./database";
 dotenv.config();
 
 export default {
+  PORT: process.env.PORT || 8000,
   server: {
     host: "localhost",
     protocol: "http",
