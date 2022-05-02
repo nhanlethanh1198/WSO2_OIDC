@@ -1,3 +1,6 @@
 import { ErrorService } from "./errorService";
+import { ICrudOption, ICrudExecOption } from "./crudService";
 
-export const errorService = new ErrorService();
+const errorService = new ErrorService();
+
+export { errorService, ICrudOption, ICrudExecOption };

@@ -22,4 +22,4 @@ export interface ICrudExecOption {
   msg?: string;
 }
 
-export class CrudService {}
+// export class CrudService {}
