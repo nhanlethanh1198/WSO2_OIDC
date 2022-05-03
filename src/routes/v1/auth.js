@@ -10,7 +10,9 @@ const controllers = require("../../controllers");
 router.post(
   "/register",
   // middleware.authMiddleware.validateRegister,
-  controllers.authController.onRegister,
+  controllers.authController.onRegister
 );
+
+router.post("/login", controllers.authController.onLogin);
 
 module.exports = router;
