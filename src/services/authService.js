@@ -9,12 +9,12 @@ class AuthService {
   async generateToken(user) {
     const { _id } = user;
       return await jwt.sign({_id}, this.config.constant.VERIFY_TOKEN, {
-        expiresIn: '1h',
+        expiresIn: '10h',
     });
   }
 
   async verifyToken(token) {
-    return jwt.verify(token, this.config.jwtSecret);
+    return await jwt.verify(token, this.config.constant.VERIFY_TOKEN);
   }
 }
 

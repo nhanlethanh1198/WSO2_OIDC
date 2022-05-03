@@ -49,3 +49,8 @@ code-log.txt
 .ebextensions
 aws_dockers
 package-lock.json
+
+
+#editor
+.vscode
+.idea

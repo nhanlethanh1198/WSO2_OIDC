@@ -76,6 +76,8 @@ class AuthController {
   async onLogin(req, res) {
     const { email, username, password } = req.body;
 
+    console.log(req.body)
+
     const user = email
       ? await User.findOne({ email })
       : await User.findOne({ username });
