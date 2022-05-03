@@ -1,5 +1,11 @@
 const Database = require("./database");
 
 const database = new Database();
+const constant = require("./constant")
 
-module.exports.database = database;
+const config = {
+    database,
+    constant
+};
+
+module.exports = config;

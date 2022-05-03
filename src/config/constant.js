@@ -1,3 +1,7 @@
 require("dotenv").config();
 
-module.exports.VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+const constant = {
+    "VERIFY_TOKEN": process.env.VERIFY_TOKEN,
+}
+
+module.exports = constant;
