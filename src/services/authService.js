@@ -16,6 +16,10 @@ class AuthService {
   async verifyToken(token) {
     return await jwt.verify(token, this.config.constant.VERIFY_TOKEN);
   }
+
+  async registerUser(user) {
+    
+  }
 }
 
 module.exports = AuthService;

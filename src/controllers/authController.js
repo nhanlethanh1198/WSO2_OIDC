@@ -5,6 +5,7 @@ const config = require("../config");
 const jwt = require("jsonwebtoken");
 const Services = require("../services");
 
+
 class AuthController {
   constructor() {
     this.services = new Services();

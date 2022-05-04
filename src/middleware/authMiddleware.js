@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { check, validateResult } = require("express-validator");
+const { check } = require("express-validator");
 
 class AuthMiddleware {
   constructor() {

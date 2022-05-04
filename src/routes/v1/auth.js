@@ -13,6 +13,10 @@ router.post(
   controllers.authController.onRegister
 );
 
-router.post("/login", controllers.authController.onLogin);
+router.post(
+  "/login",
+  // middleware.authMiddleware.validateLogin,
+  controllers.authController.onLogin
+);
 
 module.exports = router;
