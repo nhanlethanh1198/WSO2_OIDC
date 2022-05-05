@@ -1,3 +1,4 @@
+const { default: axios } = require("axios");
 const express = require("express");
 
 const router = express.Router();
@@ -9,7 +10,6 @@ router.get("/", (req, res, next) => {
         headers,
         body
     })
-
 })
 
 router.post("/", (req, res, next) => {
