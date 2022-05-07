@@ -3,21 +3,15 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/userModel");
 const config = require("../config");
 const jwt = require("jsonwebtoken");
-const Services = require("../services");
+const { AuthService, authService } = require("../services");
+const { authMiddleware } = require("../middleware");
 
-
-class AuthController {
+class AuthController extends AuthService {
   constructor() {
-    this.services = new Services();
+    super();
   }
 
   async onRegister(req, res) {
-    // const error = validationResult(req);
-
-    // if (!error.isEmpty()) {
-    //   return res.status(400).json({ errors: error.array() });
-    // } else next();
-
     const object = Object.assign({}, req?.body);
     // res?.json(object);
 
@@ -77,7 +71,7 @@ class AuthController {
   async onLogin(req, res) {
     const { email, username, password } = req.body;
 
-    console.log(req.body)
+    console.log(req.body);
 
     const user = email
       ? await User.findOne({ email })
@@ -122,6 +116,27 @@ class AuthController {
       }
     );
   }
+
+  async testConnectToWSO2(req, res) {
+    try {
+      const data = await authService.testConnectionToWSO2(req, res);
+      res.json({
+        message: "Connected to WSO2",
+      });
+    } catch (err) {
+      console.log(err);
+      res.json({
+        message: "Error connecting to WSO2",
+      });
+    }
+  }
+
+  onRegisterMiddleware() {
+    return [
+        ...authMiddleware.validateLogin()
+    ]
+  }
+
 }
 
 module.exports = AuthController;

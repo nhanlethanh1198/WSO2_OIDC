@@ -1,15 +1,15 @@
-const jwt = require('jsonwebtoken');
-const config = require('../config/');
+const jwt = require("jsonwebtoken");
+const SSO = require("./ssoService");
 
-class AuthService {
+class AuthService extends SSO {
   constructor() {
-    this.config = config;
+    super();
   }
 
   async generateToken(user) {
     const { _id } = user;
-      return await jwt.sign({_id}, this.config.constant.VERIFY_TOKEN, {
-        expiresIn: '10h',
+    return await jwt.sign({ _id }, this.config.constant.VERIFY_TOKEN, {
+      expiresIn: "10h",
     });
   }
 
@@ -17,9 +17,7 @@ class AuthService {
     return await jwt.verify(token, this.config.constant.VERIFY_TOKEN);
   }
 
-  async registerUser(user) {
-    
-  }
+  async registerUser(user) {}
 }
 
 module.exports = AuthService;

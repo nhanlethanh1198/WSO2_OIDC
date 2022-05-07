@@ -2,14 +2,15 @@ const ErrorMiddleware = require("./errorMiddleware");
 const AuthMiddleware = require("./authMiddleware");
 const ValidateMiddleware = require("./validateMiddleware");
 
-class Middleware {
-  constructor() {
-    this.errorMiddleware = new ErrorMiddleware();
-    this.authMiddleware = new AuthMiddleware();
-    this.validateMiddleware = new ValidateMiddleware();
-  }
+const authMiddleware = new AuthMiddleware();
+const errorMiddleware = new ErrorMiddleware();
+const validateMiddleware = new ValidateMiddleware();
+
+module.exports = {
+  authMiddleware,
+  AuthMiddleware,
+  errorMiddleware,
+  ErrorMiddleware,
+  validateMiddleware,
+  ValidateMiddleware
 }
-
-const middleware = new Middleware();
-
-module.exports = middleware;

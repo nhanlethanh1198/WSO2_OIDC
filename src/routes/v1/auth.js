@@ -19,4 +19,8 @@ router.post(
   controllers.authController.onLogin
 );
 
+router.get("/test", controllers.authController.testConnectToWSO2);
+
+router.get("/callback", controllers.authController.signIn);
+
 module.exports = router;
